@@ -32,6 +32,11 @@ volumes:
             name: cockroachdb-root
 securityContext:
   runAsUser: 28069
-storage:
-  persistence: false
-  size: 10Gi
+volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 10Gi
