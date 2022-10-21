@@ -1,36 +1,38 @@
 vcluster:
-  env:
-    - name: K3S_DATASTORE_ENDPOINT
-      value: postgres://root@cockroachdb-public:26257/defaultdb
-    - name: K3S_DATASTORE_CERTFILE
-      value: "/cockroach/cockroach-certs/client.root.crt"
-    - name: K3S_DATASTORE_KEYFILE
-      value: "/cockroach/cockroach-certs/client.root.key"
-    - name: K3S_DATASTORE_CAFILE
-      value: "/cockroach/cockroach-certs/ca.crt"
-  volumeMounts:
-    - mountPath: /data
-      name: data
-    - mountPath: /cockroach/cockroach-certs/
-      name: datastore-tls
-volumes:
-  - name: datastore-tls
-    projected:
-      defaultMode: 256
-      sources:
-        - secret:
-            items:
-              - key: ca.crt
-                path: ca.crt
-            name: cockroachdb-node
-        - secret:
-            items:
-              - key: tls.crt
-                path: client.root.crt
-              - key: tls.key
-                path: client.root.key
-            name: cockroachdb-root
-storage:
-  size: 10Gi
-securityContext:
-  runAsUser: 28069
+  vcluster:
+    image: rancher/k3s:v1.24.6-k3s1
+    env:
+      - name: K3S_DATASTORE_ENDPOINT
+        value: postgres://root@cockroachdb-public:26257/defaultdb
+      - name: K3S_DATASTORE_CERTFILE
+        value: "/cockroach/cockroach-certs/client.root.crt"
+      - name: K3S_DATASTORE_KEYFILE
+        value: "/cockroach/cockroach-certs/client.root.key"
+      - name: K3S_DATASTORE_CAFILE
+        value: "/cockroach/cockroach-certs/ca.crt"
+    volumeMounts:
+      - mountPath: /data
+        name: data
+      - mountPath: /cockroach/cockroach-certs/
+        name: datastore-tls
+  volumes:
+    - name: datastore-tls
+      projected:
+        defaultMode: 256
+        sources:
+          - secret:
+              items:
+                - key: ca.crt
+                  path: ca.crt
+              name: cockroachdb-node
+          - secret:
+              items:
+                - key: tls.crt
+                  path: client.root.crt
+                - key: tls.key
+                  path: client.root.key
+              name: cockroachdb-root
+  storage:
+    size: 10Gi
+  securityContext:
+    runAsUser: 28069
