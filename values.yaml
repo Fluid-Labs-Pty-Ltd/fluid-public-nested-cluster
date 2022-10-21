@@ -32,6 +32,6 @@ volumes:
             name: cockroachdb-root
 securityContext:
   runAsUser: 28069
-syncer:
-  extraArgs:
-   - 
+storage:
+  persistence: true
+  size: 10Gi
