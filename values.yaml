@@ -30,13 +30,7 @@ volumes:
               - key: tls.key
                 path: client.root.key
             name: cockroachdb-root
+storage:
+  size: 10Gi
 securityContext:
   runAsUser: 28069
-volumeClaimTemplates:
-  - metadata:
-      name: data
-    spec:
-      accessModes: ["ReadWriteOnce"]
-      resources:
-        requests:
-          storage: 10Gi
