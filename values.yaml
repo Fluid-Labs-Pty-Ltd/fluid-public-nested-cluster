@@ -40,3 +40,4 @@ vcluster:
     size: 10Gi
   securityContext:
     runAsUser: 28069
+    runAsNonRoot: true
