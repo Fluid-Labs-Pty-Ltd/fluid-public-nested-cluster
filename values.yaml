@@ -22,7 +22,7 @@ vcluster:
   volumes:
     - name: datastore-tls
       projected:
-        defaultMode: 256
+        defaultMode: 0600
         sources:
           - secret:
               items:
@@ -38,6 +38,3 @@ vcluster:
               name: cockroachdb-root
   storage:
     size: 10Gi
-  securityContext:
-    runAsUser: 28069
-    runAsNonRoot: true
