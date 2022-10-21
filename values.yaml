@@ -33,5 +33,5 @@ volumes:
 securityContext:
   runAsUser: 28069
 storage:
-  persistence: true
+  persistence: false
   size: 10Gi
