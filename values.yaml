@@ -38,3 +38,6 @@ vcluster:
               name: cockroachdb-root
   storage:
     size: 10Gi
+  syncer:
+    extraArgs:
+      - --tls-san=*.kube.cloud-test.fluidhq.io
