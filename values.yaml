@@ -1,10 +1,13 @@
 vcluster:
+  enableHA: false
+  coredns:
+    replicas: 2
   plugin:
     hooks:
       image: harbor.fluidhq.io/public/vcluster-plugin@sha256:540eefa4608228e2f62159e04de23db8788cd21a20eb0fd4000ee0af26358d2e
       imagePullPolicy: IfNotPresent
   vcluster:
-    image: rancher/k3s:v1.24.6-k3s1
+    image: rancher/k3s:v1.24.8-k3s1
     env:
       - name: K3S_DATASTORE_ENDPOINT
         value: postgres://root@cockroachdb-public:26257/defaultdb?serial_normalization=sql_sequence
@@ -41,3 +44,8 @@ vcluster:
   syncer:
     extraArgs:
       - --tls-san=*.kube.cloud-test.fluidhq.io
+  sync:
+    nodes:
+      enabled: true
+      enableScheduler: true
+      syncAllNodes: true
