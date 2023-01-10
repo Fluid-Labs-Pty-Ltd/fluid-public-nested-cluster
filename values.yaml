@@ -42,8 +42,8 @@ vcluster:
   storage:
     size: 10Gi
   syncer:
-    extraArgs:
-      - --tls-san=*.kube.cloud-test.fluidhq.io
+    extraArgs
+      - --tls-san=*.kube.cloud.fluidhq.io
   sync:
     nodes:
       enabled: true
