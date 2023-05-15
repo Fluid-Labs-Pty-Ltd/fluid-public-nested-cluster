@@ -2,10 +2,10 @@ apiVersion: v2
 name: fluid-nested-cluster
 description: A Helm chart for fluid nested clusters
 type: application
-version: 2022.12.0
-appVersion: "2022.12.0"
+version: 2023.05.0
+appVersion: "2023.05.0"
 
 dependencies:
   - name: vcluster
-    version: 0.13.0
+    version: 0.14.0
     repository: https://charts.loft.sh/
