@@ -22,6 +22,8 @@ vcluster:
         name: data
       - mountPath: /cockroach/cockroach-certs/
         name: datastore-tls
+  telemetry:
+    disabled: "true"
   volumes:
     - name: datastore-tls
       projected:
