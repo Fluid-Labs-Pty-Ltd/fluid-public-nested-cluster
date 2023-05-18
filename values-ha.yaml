@@ -1,5 +1,6 @@
 vcluster:
-  enableHA: false
+  enableHA: true
+  replicas: 2
   coredns:
     replicas: 2
   plugin:
@@ -22,8 +23,6 @@ vcluster:
         name: data
       - mountPath: /cockroach/cockroach-certs/
         name: datastore-tls
-  telemetry:
-    disabled: "true"
   volumes:
     - name: datastore-tls
       projected:
@@ -42,10 +41,10 @@ vcluster:
                   path: client.root.key
               name: cockroachdb-root
   storage:
-    size: 10Gi
+    persistence: false
   syncer:
     extraArgs:
-      - --tls-san=*.kube.cloud.fluidhq.io
+      - --tls-san=*.kube.cloud-test.fluidhq.io
   sync:
     nodes:
       enabled: true
