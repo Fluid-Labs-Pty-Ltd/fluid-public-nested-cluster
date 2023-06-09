@@ -1,3 +1,4 @@
+enableCrDb: true
 vcluster:
   enableHA: true
   replicas: 2
