@@ -1,3 +1,4 @@
+enableCrDb: true
 vcluster:
   enableHA: false
   coredns:
