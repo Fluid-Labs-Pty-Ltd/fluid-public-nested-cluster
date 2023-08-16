@@ -25,10 +25,10 @@ vcluster:
   telemetry:
     disabled: "true"
   storage:
-    size: 10Gi
+    size: 30Gi
   syncer:
     extraArgs:
-      - --tls-san=*.kube.cloud-test.fluidhq.io
+      - --tls-san=*.kube.cloud.fluidhq.io
   sync:
     nodes:
       enabled: true
