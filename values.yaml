@@ -19,8 +19,6 @@ vcluster:
       - name: K3S_DATASTORE_CAFILE
         value: "/cockroach/cockroach-certs/ca.crt"
     volumeMounts:
-      - mountPath: /data
-        name: data
       - mountPath: /cockroach/cockroach-certs/
         name: datastore-tls
   telemetry:
