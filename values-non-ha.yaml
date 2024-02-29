@@ -8,7 +8,7 @@ vcluster:
       image: harbor.fluidhq.io/public/vcluster-plugin@sha256:540eefa4608228e2f62159e04de23db8788cd21a20eb0fd4000ee0af26358d2e
       imagePullPolicy: IfNotPresent
   vcluster:
-    image: rancher/k3s:v1.28.6+k3s2
+    image: rancher/k3s:v1.28.6-k3s2
     env:
       - name: K3S_DATASTORE_ENDPOINT
         value: ""
