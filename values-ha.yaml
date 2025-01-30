@@ -6,7 +6,7 @@ vcluster:
     replicas: 2
   plugin:
     hooks:
-      image: harbor.fluidhq.io/public/vcluster-plugin:latest
+      image: harborv2.fluidhq.io/public/vcluster-plugin:latest
       imagePullPolicy: IfNotPresent
   vcluster:
     image: rancher/k3s:v1.28.6-k3s2
