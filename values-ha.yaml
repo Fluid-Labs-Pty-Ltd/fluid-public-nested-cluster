@@ -43,7 +43,7 @@ vcluster:
     persistence: false
   syncer:
     extraArgs:
-      - --tls-san=*.kube.cloud-test.fluidhq.io
+      - --tls-san=*.kube.cloud-dev.fluidhq.io
   sync:
     nodes:
       enabled: true
